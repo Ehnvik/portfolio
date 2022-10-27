@@ -40,9 +40,10 @@
       &__link {
         color: c.$secondaryColor;
         &__anchor {
+          text-shadow: 2px 2px 4px c.$primaryTextShadowColor;
           transition: all 0.15s ease-in-out;
           &:hover {
-            color: c.$primaryColorOpacity;
+            text-shadow: 2px 4px 6px c.$seconadaryBgColorOpacityDarker;
           }
         }
       }
@@ -164,6 +165,7 @@
         }
         a {
           color: c.$secondaryColor;
+          text-shadow: 2px 2px 4px c.$seconadaryBgColorOpacityDarker;
         }
       }
     }
