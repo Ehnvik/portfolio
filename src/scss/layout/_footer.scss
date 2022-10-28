@@ -9,7 +9,7 @@
   color: c.$secondaryColor;
   text-shadow: 2px 2px 4px c.$primaryTextShadowColor;
   font-size: 22px;
-  height: 62vh;
+  height: 50vh;
   @include c.small {
     flex-direction: row;
     height: 21vh;
