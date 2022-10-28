@@ -26,3 +26,9 @@
     @content;
   }
 }
+
+@mixin xlarge {
+  @media screen and (min-width: bp.$breakPoint-xLarge) {
+    @content;
+  }
+}

@@ -1,0 +1,75 @@
+@use "../components/" as c;
+
+.resume {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 15px;
+  background-color: rgba(250, 250, 250, 0.4);
+  background-image: url(/src/assets/img/resume-background-img-mobile.jpg);
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: lighten;
+  color: c.$primaryColor;
+  @include c.small {
+    background-color: rgba(250, 250, 250, 0.4);
+    background-image: url(/src/assets/img/resume-background-img-desktop.jpg);
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: lighten;
+  }
+  &__title {
+    width: 100%;
+    text-align: center;
+    font-family: c.$titleFont;
+    font-size: 40px;
+    font-weight: 500;
+    @include c.small {
+      font-weight: 400;
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 80%;
+    margin-left: 20px;
+    @include c.small {
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+    }
+    @include c.xlarge {
+      width: 80%;
+    }
+    &__box {
+      &__box-title {
+        font-family: c.$titleFont;
+        font-size: 24px;
+        font-weight: 500;
+        @include c.medium {
+          font-size: 26px;
+        }
+        &--logo {
+          color: c.$secondaryBgColor;
+          padding-right: 5px;
+          font-size: 32px;
+        }
+      }
+      &__list {
+        padding: 0px 0px 0px 25;
+        &__link {
+          margin: 22px 0px;
+          font-size: 17px;
+          text-shadow: 1px 0.5px c.$primaryColorOpacity;
+          &__header {
+            margin: 20px 0px;
+            font-size: 20px;
+            font-family: c.$titleFont;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
