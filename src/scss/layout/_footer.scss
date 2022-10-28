@@ -9,10 +9,10 @@
   color: c.$secondaryColor;
   text-shadow: 2px 2px 4px c.$primaryTextShadowColor;
   font-size: 22px;
-  height: 50vh;
+  height: 60vh;
   @include c.small {
     flex-direction: row;
-    height: 21vh;
+    height: 23vh;
     justify-content: space-around;
     align-items: start;
     font-size: 20px;
