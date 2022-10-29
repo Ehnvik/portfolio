@@ -49,8 +49,58 @@
       </nav>
     </header>
 
-    <main>
-      <h1>Kontakt</h1>
+    <main class="contact">
+      <div class="contact__title-container">
+        <h3 class="contact__title-container__title-one">
+          Känns jag som rätt person för ditt företag?
+        </h3>
+        <h4 class="contact__title-container__title-two">
+          Låt oss jobba tillsammans!
+        </h4>
+      </div>
+      <article class="contact__container">
+        <form class="contact__container__form">
+          <label class="contact__container__form__label" for="name">Namn</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="contact__container__form__input"
+            placeholder="Namn"
+            required />
+          <label class="contact__container__form__label" for="emailaddress"
+            >E-post</label
+          >
+          <input
+            type="email"
+            name="email"
+            id="emailaddress"
+            class="contact__container__form__input"
+            placeholder="E-post"
+            required />
+          <label class="contact__container__form__label" for="number"
+            >Telefonnummer</label
+          >
+          <input
+            type="tel"
+            name="phone"
+            id="number"
+            class="contact__container__form__input"
+            placeholder="Tel-xxxxxxxxxx"
+            pattern="[0-9]{10}"
+            required />
+          <textarea
+            rows="5"
+            name="projectsummary"
+            id="projectsummary"
+            class="contact__container__form__textarea"
+            placeholder="Meddelande"
+            required></textarea>
+          <button type="submit" class="contact__container__form__button">
+            Skicka
+          </button>
+        </form>
+      </article>
     </main>
 
     <footer class="footer">
