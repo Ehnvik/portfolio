@@ -1,6 +1,14 @@
 @use "../components/" as c;
 
 .home {
+  background-color: rgba(250, 250, 250, 0.4);
+  background-image: url(/src/assets/img/home-background-img-mobile.jpg);
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: lighten;
+  @include c.small {
+    background-image: url(/src/assets/img/home-background-img-desktop.jpg);
+  }
   &__section {
     display: flex;
     flex-direction: column;
@@ -44,8 +52,9 @@
 
       div {
         font-size: 35px;
-        font-weight: 500;
-        text-shadow: 2px 2px 4px #7e7e7e;
+        font-weight: 300;
+        text-shadow: 2px 2px 4px #bfbdbd;
+        color: c.$primaryColor;
         &:nth-child(7) {
           border-right: 3px solid c.$primaryColor;
           text-shadow: 2px 2px 4px #7e7e7e;
@@ -138,6 +147,7 @@
         padding: 0px 15px;
         font-size: 18px;
         margin: 20px 10px;
+        font-weight: 300;
         @include c.small {
           padding-left: 0;
         }
