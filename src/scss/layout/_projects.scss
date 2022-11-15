@@ -1,0 +1,14 @@
+@use "../components/" as c;
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  &__repo-box {
+    font-family: c.$titleFont;
+    &__title {
+      font-family: c.$titleFont;
+    }
+  }
+}
