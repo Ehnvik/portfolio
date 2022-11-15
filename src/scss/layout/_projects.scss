@@ -3,12 +3,15 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: start;
   gap: 50px;
+  color: c.$primaryColor;
   &__repo-box {
     font-family: c.$titleFont;
+    margin-left: 25px;
     &__title {
-      font-family: c.$titleFont;
+      font-size: 26px;
+      font-weight: 400;
     }
   }
 }
