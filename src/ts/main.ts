@@ -33,10 +33,15 @@ function printRepos(repoList: Repo[]): void {
       repoDate.innerHTML = myRepo.repoDate;
       repoDescription.innerHTML = myRepo.repoDescription;
       repoGithubLink.href = myRepo.repoLink;
-      repoGithubLink.innerHTML = `Länk till Projekt: ${myRepo.repoName}`;
+      repoGithubLink.innerHTML = `<i class="fa-brands fa-github"></i> Hämta projekt`;
+      repoGithubLink.setAttribute("target", "blank");
 
       repoBox.classList.add("container__repo-box");
       repoName.classList.add("container__repo-box__title");
+      repoDate.classList.add("container__repo-box__date");
+      repoDescription.classList.add("container__repo-box__description");
+      repoTopics.classList.add("container__repo-box__topics");
+      repoGithubLink.classList.add("container__repo-box__link");
 
       myRepo.repoTopics.forEach((topic: string) => {
         repoTopics.innerHTML += " " + topic;
