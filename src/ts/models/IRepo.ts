@@ -1,6 +1,7 @@
 export interface IRepo {
   name: string;
   clone_url: string;
-  language: string;
+  description: string;
   created_at: string;
+  topics: string[];
 }
