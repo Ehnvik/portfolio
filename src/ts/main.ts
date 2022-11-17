@@ -22,6 +22,8 @@ function printRepos(repoList: Repo[]): void {
   container.classList.add("container");
   repoList.forEach((myRepo: Repo) => {
     if (myRepo.repoDescription != null) {
+      let newDate = new Date(myRepo.repoDate);
+      let newRepoDate = newDate.toLocaleDateString();
       let repoBox: HTMLDivElement = document.createElement("div");
       let repoName: HTMLHeadingElement = document.createElement("h3");
       let repoDate: HTMLParagraphElement = document.createElement("p");
@@ -30,7 +32,7 @@ function printRepos(repoList: Repo[]): void {
       let repoGithubLink: HTMLAnchorElement = document.createElement("a");
 
       repoName.innerHTML = myRepo.repoName;
-      repoDate.innerHTML = myRepo.repoDate;
+      repoDate.innerHTML = newRepoDate;
       repoDescription.innerHTML = myRepo.repoDescription;
       repoGithubLink.href = myRepo.repoLink;
       repoGithubLink.innerHTML = `<i class="fa-brands fa-github"></i> Hämta projekt`;

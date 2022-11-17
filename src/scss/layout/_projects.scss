@@ -18,6 +18,9 @@
     box-shadow: 1px 0px 20px rgba(151, 149, 149, 0.8),
       0px 10px 5px rgba(151, 149, 149, 0.1);
     @include c.small {
+      background-image: url("/src/assets/img/project-background-img.jpg");
+      background-position: center;
+      background-size: cover;
       transition: all 0.2s ease-in-out;
       &:hover {
         transform: scale(1.02);
