@@ -22,8 +22,8 @@ function printRepos(repoList: Repo[]): void {
   container.classList.add("container");
   repoList.forEach((myRepo: Repo) => {
     if (myRepo.repoDescription != null) {
-      let newDate = new Date(myRepo.repoDate);
-      let newRepoDate = newDate.toLocaleDateString();
+      let newDate: Date = new Date(myRepo.repoDate);
+      let newRepoDate: string = newDate.toLocaleDateString();
       let repoBox: HTMLDivElement = document.createElement("div");
       let repoName: HTMLHeadingElement = document.createElement("h3");
       let repoDate: HTMLParagraphElement = document.createElement("p");

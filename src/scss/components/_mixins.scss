@@ -32,3 +32,9 @@
     @content;
   }
 }
+
+@mixin xxlarge {
+  @media screen and (min-width: bp.$breakPoint-xxLarge) {
+    @content;
+  }
+}

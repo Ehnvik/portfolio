@@ -20,6 +20,7 @@ body {
   &__repo-box {
     font-family: c.$titleFont;
     width: 100%;
+    border-radius: 18px;
     margin: 25px 25px 0px 25px;
     box-shadow: 1px 0px 20px rgba(151, 149, 149, 0.8),
       0px 10px 5px rgba(151, 149, 149, 0.1);
@@ -46,6 +47,9 @@ body {
     }
     &__date {
       padding-left: 10px;
+      @include c.xxlarge {
+        padding-top: 20px;
+      }
     }
     &__description {
       font-size: 16px;
