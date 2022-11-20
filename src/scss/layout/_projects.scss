@@ -13,6 +13,9 @@ body {
   width: 100%;
   color: c.$primaryColor;
   margin-bottom: 25px;
+  @include c.small {
+    animation: projects-load var(--projects-load-time) ease-in;
+  }
   @include c.medium {
     height: 70vh;
     justify-content: center;
@@ -28,9 +31,30 @@ body {
       background-image: url("/src/assets/img/project-background-img.jpg");
       background-position: center;
       background-size: cover;
+      animation-name: projects-load;
+      animation-duration: var(--projects-load-time);
+      animation-timing-function: ease-in;
+      animation-delay: var(--projects-time);
+      animation-fill-mode: forwards;
+      transform: scale(0);
       transition: all 0.2s ease-in-out;
       &:hover {
-        transform: scale(1.02);
+        // transform: scale(1.02);
+        box-shadow: 1px 0px 40px rgba(70, 67, 67, 0.8),
+          30px 10px 5px rgba(151, 149, 149, 0.1);
+      }
+      @keyframes projects-load {
+        0% {
+          transform: scale(0);
+        }
+
+        90% {
+          transform: scale(1.1);
+        }
+
+        100% {
+          transform: scale(1);
+        }
       }
     }
     @include c.medium {

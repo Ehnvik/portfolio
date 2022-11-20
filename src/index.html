@@ -5,12 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./scss/style.scss" />
-    
     <script src="./ts/main.ts" defer type="module"></script>
+    <script src="./ts/weather/weather.ts" defer type="module"></script>
     <script
       src="https://kit.fontawesome.com/bc5eefc1c7.js"
       crossorigin="anonymous"></script>
-      
     <title>Portfölj Gustav Ehnvik</title>
   </head>
   <body>
@@ -138,6 +137,11 @@
           </a>
           <span>LinkedIn</span>
         </li>
+      </ul>
+      <ul class="footer__list">
+        <li class="footer__list__link"><strong>Vädret idag</strong></li>
+        <li id="weather-location" class="footer__list__link">Plats</li>
+        <li id="weather-temperature" class="footer__list__link">grader</li>
       </ul>
     </footer>
   </body>

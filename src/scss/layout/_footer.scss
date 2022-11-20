@@ -16,6 +16,7 @@
     justify-content: space-around;
     align-items: start;
     font-size: 18px;
+    animation: footer-load var(--footer-load-time) ease-in;
     @include c.medium {
       font-size: 20px;
     }
@@ -66,6 +67,22 @@
       @include c.small {
         text-align: start;
         padding-left: 15%;
+        animation-name: footer-load;
+        animation-duration: var(--footer-load-time);
+        animation-timing-function: ease-in;
+        animation-delay: var(--footer-time);
+        animation-fill-mode: forwards;
+        transform: scale(0);
+
+        @keyframes footer-load {
+          0% {
+            transform: translateY(100%);
+          }
+
+          100% {
+            transform: translateY(0);
+          }
+        }
       }
       @include c.medium {
         padding-left: 20%;

@@ -5,6 +5,7 @@
   height: 50px;
   padding: 1em;
   font-size: 20px;
+  animation: nav-load var(--nav-load-time) ease-in;
   &__logo-box {
     display: flex;
     flex-direction: row;
@@ -39,6 +40,36 @@
       }
       &__link {
         color: c.$secondaryColor;
+        animation-name: nav-link-load;
+        animation-duration: var(--nav-link-load-time);
+        animation-timing-function: ease-in;
+        animation-delay: var(--nav-load-time);
+        animation-fill-mode: forwards;
+        transform: scale(0);
+
+        @keyframes nav-load {
+          0% {
+            transform: translateY(-100%);
+          }
+
+          100% {
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes nav-link-load {
+          0% {
+            transform: scale(0);
+          }
+
+          90% {
+            transform: scale(1.1);
+          }
+
+          100% {
+            transform: scale(1);
+          }
+        }
         &__anchor {
           text-shadow: 2px 2px 4px c.$primaryTextShadowColor;
           transition: all 0.15s ease-in-out;

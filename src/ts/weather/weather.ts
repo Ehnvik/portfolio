@@ -22,6 +22,7 @@ function error(e: GeolocationPositionError) {
 }
 
 let apiKey = "020edece24a6c3fb1efcc31fd47010d6";
+
 function getWeatherApi(lat: number, lon: number) {
   axios
     .get<IWeatherData>(
@@ -52,16 +53,15 @@ function printWeatherData(newWeather: Weather) {
     "weather-temperature"
   ) as HTMLLinkElement;
 
-  let weatherDescription = "";
+  let weatherDescription: string = "";
 
   newWeather.weather.forEach((weather: WeatherDetails) => {
     weatherDescription = weather.description;
   });
 
   let wholeNumberTemperature: number = Math.round(newWeather.temperature);
-  let temperatureText = wholeNumberTemperature.toString();
+  let temperatureText: string = wholeNumberTemperature.toString();
 
   weatherLocation.innerHTML = newWeather.locationName;
-  weatherTemperature.innerHTML =
-    temperatureText + " &deg;C" + " " + weatherDescription;
+  weatherTemperature.innerHTML = `${temperatureText} &deg;C ${weatherDescription}`;
 }
