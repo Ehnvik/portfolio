@@ -25,6 +25,10 @@
       @include c.small {
         font-size: 30px;
         font-weight: 300;
+        animation: article-load 300ms ease-in var(--article-load-delay);
+        animation-fill-mode: forwards;
+        transform: translateY(-20px);
+        opacity: 0;
         @include c.large {
           font-size: 35px;
         }
@@ -38,6 +42,10 @@
       text-align: center;
       @include c.small {
         font-size: 25px;
+        animation: article-load 300ms ease-in var(--article-load-delay);
+        animation-fill-mode: forwards;
+        transform: translateY(-20px);
+        opacity: 0;
       }
       @include c.medium {
         margin: 0px 0px 55px 0px;
@@ -58,6 +66,11 @@
       width: 60vw;
       @include c.small {
         width: 50vw;
+        animation: article-load 300ms ease-in
+          calc(var(--article-load-delay) + 200ms);
+        animation-fill-mode: forwards;
+        transform: translateY(-20px);
+        opacity: 0;
         @include c.medium {
           width: 40vw;
         }

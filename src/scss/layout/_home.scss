@@ -65,54 +65,54 @@
         }
       }
       div:nth-child(1) {
-        animation: myAnimation 0.4s forwards;
-      }
-      div:nth-child(2) {
         animation: myAnimation 0.6s forwards;
       }
-
-      div:nth-child(3) {
+      div:nth-child(2) {
         animation: myAnimation 0.8s forwards;
       }
 
-      div:nth-child(4) {
+      div:nth-child(3) {
         animation: myAnimation 1s forwards;
       }
 
-      div:nth-child(5) {
+      div:nth-child(4) {
         animation: myAnimation 1.2s forwards;
       }
 
-      div:nth-child(6) {
+      div:nth-child(5) {
         animation: myAnimation 1.4s forwards;
       }
 
-      div:nth-child(7) {
+      div:nth-child(6) {
         animation: myAnimation 1.6s forwards;
       }
 
-      div:nth-child(8) {
+      div:nth-child(7) {
         animation: myAnimation 1.8s forwards;
       }
 
-      div:nth-child(9) {
+      div:nth-child(8) {
         animation: myAnimation 2s forwards;
       }
 
-      div:nth-child(10) {
+      div:nth-child(9) {
         animation: myAnimation 2.2s forwards;
       }
 
-      div:nth-child(11) {
+      div:nth-child(10) {
         animation: myAnimation 2.4s forwards;
       }
 
-      div:nth-child(12) {
+      div:nth-child(11) {
         animation: myAnimation 2.6s forwards;
       }
 
-      div:nth-child(13) {
+      div:nth-child(12) {
         animation: myAnimation 2.8s forwards;
+      }
+
+      div:nth-child(13) {
+        animation: myAnimation 3s forwards;
       }
 
       @keyframes myAnimation {
@@ -137,6 +137,21 @@
         @include c.small {
           text-align: start;
           margin-left: 10px;
+          animation: article-load 300ms ease-in var(--article-load-delay);
+          animation-fill-mode: forwards;
+          transform: translateY(-20px);
+          opacity: 0;
+          @keyframes article-load {
+            0% {
+              transform: translateY(-20px);
+              opacity: 0;
+            }
+
+            100% {
+              transform: translateY(0px);
+              opacity: 1;
+            }
+          }
         }
         &--logo {
           color: c.$secondaryBgColor;
@@ -150,6 +165,11 @@
         font-weight: 300;
         @include c.small {
           padding-left: 0;
+          animation: article-load 300ms ease-in
+            calc(var(--article-load-delay) + 200ms);
+          animation-fill-mode: forwards;
+          transform: translateY(-20px);
+          opacity: 0;
         }
         @include c.medium {
           width: 80%;
