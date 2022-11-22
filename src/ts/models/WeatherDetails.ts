@@ -1,3 +1,8 @@
 export class WeatherDetails {
-  constructor(public main: string, public description: string) {}
+  constructor(
+    public id: number,
+    public main: string,
+    public description: string,
+    public icon: string
+  ) {}
 }

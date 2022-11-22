@@ -10,13 +10,21 @@
   text-shadow: 2px 2px 4px c.$primaryTextShadowColor;
   font-size: 20px;
   height: 70vh;
-  @include c.small {
-    flex-direction: row;
-    height: 23vh;
-    justify-content: space-around;
-    align-items: start;
-    font-size: 18px;
-    animation: footer-load var(--footer-load-time) ease-in;
+  &:last-child {
+    #weather-location {
+      padding-bottom: 0;
+    }
+    .weather-icon {
+      height: 40px;
+    }
+    @include c.small {
+      flex-direction: row;
+      height: 23vh;
+      justify-content: space-around;
+      align-items: start;
+      font-size: 18px;
+      animation: footer-load var(--footer-load-time) ease-in;
+    }
     @include c.medium {
       font-size: 20px;
     }

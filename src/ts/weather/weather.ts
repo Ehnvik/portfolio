@@ -29,9 +29,15 @@ function getWeatherApi(lat: number, lon: number) {
       `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=sv&appid=${apiKey}&units=metric`
     )
     .then((response) => {
+      console.log(response.data);
       let myWeather: WeatherDetails[] = response.data.weather.map(
         (weatherData: IWeather) => {
-          return new WeatherDetails(weatherData.main, weatherData.description);
+          return new WeatherDetails(
+            weatherData.id,
+            weatherData.main,
+            weatherData.description,
+            weatherData.icon
+          );
         }
       );
 
@@ -53,15 +59,24 @@ function printWeatherData(newWeather: Weather) {
     "weather-temperature"
   ) as HTMLLinkElement;
 
+  let IconUrlLink: HTMLImageElement = document.createElement("img");
+
   let weatherDescription: string = "";
+  let weatherIcon: string = "";
 
   newWeather.weather.forEach((weather: WeatherDetails) => {
     weatherDescription = weather.description;
+    weatherIcon = weather.icon;
   });
 
   let wholeNumberTemperature: number = Math.round(newWeather.temperature);
   let temperatureText: string = wholeNumberTemperature.toString();
 
+  IconUrlLink.classList.add("weather-icon");
+
+  IconUrlLink.src = `http://openweathermap.org/img/wn/${weatherIcon}.png`;
   weatherLocation.innerHTML = newWeather.locationName;
   weatherTemperature.innerHTML = `${temperatureText} &deg;C ${weatherDescription}`;
+
+  weatherTemperature.appendChild(IconUrlLink);
 }
