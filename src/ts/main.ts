@@ -1,21 +1,24 @@
-import axios from "axios";
 import { IRepo } from "./models/IRepo";
 import { Repo } from "./models/Repo";
+import { getRepos } from "./services/repoService";
 
-axios
-  .get<IRepo[]>("https://api.github.com/users/ehnvik/repos")
-  .then((response) => {
-    let newRepoList: Repo[] = response.data.map((repos: IRepo) => {
-      return new Repo(
-        repos.name,
-        repos.clone_url,
-        repos.description,
-        repos.created_at,
-        repos.topics
-      );
-    });
-    printRepos(newRepoList);
+async function receiveRepos() {
+  let repos: IRepo[] = await getRepos();
+  handleRepos(repos);
+}
+
+function handleRepos(myRepos: IRepo[]) {
+  let newRepoList: Repo[] = myRepos.map((repos: IRepo) => {
+    return new Repo(
+      repos.name,
+      repos.clone_url,
+      repos.description,
+      repos.created_at,
+      repos.topics
+    );
   });
+  printRepos(newRepoList);
+}
 
 function printRepos(repoList: Repo[]): void {
   let container = document.getElementById("container") as HTMLDivElement;
@@ -58,3 +61,5 @@ function printRepos(repoList: Repo[]): void {
     }
   });
 }
+
+receiveRepos();

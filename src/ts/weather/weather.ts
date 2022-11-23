@@ -1,53 +1,44 @@
-import axios from "axios";
 import { IWeather } from "../models/IWeather";
 import { IWeatherData } from "../models/IWeatherData";
 import { Weather } from "../models/Weather";
 import { WeatherDetails } from "../models/WeatherDetails";
+import { getWeatherData } from "../services/weatherService";
 
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(success, error);
 }
 
-function success(position: GeolocationPosition) {
+async function success(position: GeolocationPosition) {
   let lat: number = position.coords.latitude;
   let lon: number = position.coords.longitude;
-  getWeatherApi(lat, lon);
+  let response = await getWeatherData(lat, lon);
+  handleWeatherData(response);
 }
 
 function error(e: GeolocationPositionError) {
   console.log("No Position");
   let lat: number = 59.329296;
   let lon: number = 18.069643;
-  getWeatherApi(lat, lon);
+  getWeatherData(lat, lon);
 }
 
-let apiKey = "020edece24a6c3fb1efcc31fd47010d6";
-
-function getWeatherApi(lat: number, lon: number) {
-  axios
-    .get<IWeatherData>(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=sv&appid=${apiKey}&units=metric`
-    )
-    .then((response) => {
-      console.log(response.data);
-      let myWeather: WeatherDetails[] = response.data.weather.map(
-        (weatherData: IWeather) => {
-          return new WeatherDetails(
-            weatherData.id,
-            weatherData.main,
-            weatherData.description,
-            weatherData.icon
-          );
-        }
+function handleWeatherData(weather: IWeatherData) {
+  let myWeather: WeatherDetails[] = weather.weather.map(
+    (weatherData: IWeather) => {
+      return new WeatherDetails(
+        weatherData.id,
+        weatherData.main,
+        weatherData.description,
+        weatherData.icon
       );
-
-      let weather = new Weather(
-        response.data.main.temp,
-        response.data.name,
-        myWeather
-      );
-      printWeatherData(weather);
-    });
+    }
+  );
+  let newWeather: Weather = new Weather(
+    weather.main.temp,
+    weather.name,
+    myWeather
+  );
+  printWeatherData(newWeather);
 }
 
 function printWeatherData(newWeather: Weather) {
