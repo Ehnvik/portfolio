@@ -1,7 +1,10 @@
 import axios from "axios";
 import { IWeatherData } from "../models/IWeatherData";
+import * as dotenv from "dotenv";
 
-let apiKey = "020edece24a6c3fb1efcc31fd47010d6";
+dotenv.config();
+
+let apiKey = process.env.WEATHER_API_KEY;
 
 export async function getWeatherData(
   lat: number,
