@@ -4,6 +4,10 @@ body {
   background-image: url("/src/assets/img/project-background-img.jpg");
   background-position: center;
   background-size: cover;
+  @include c.small {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .container {
@@ -17,7 +21,6 @@ body {
     animation: projects-load var(--projects-load-time) ease-in;
   }
   @include c.medium {
-    height: 70vh;
     justify-content: center;
   }
   &__repo-box {

@@ -22,6 +22,7 @@
       height: 23vh;
       justify-content: space-around;
       align-items: start;
+      margin-top: auto;
       font-size: 18px;
       animation: footer-load var(--footer-load-time) ease-in;
     }
@@ -38,31 +39,6 @@
     align-items: center;
     list-style: none;
     width: 60%;
-    // &:last-child {
-    //   font-size: 18px;
-    //   height: 20%;
-    //   width: 60%;
-    //   padding-left: 10px;
-    //   padding-top: 10px;
-    // border-radius: 18px;
-    // margin: 25px 25px 0px 25px;
-    // box-shadow: 1px 0px 20px rgba(250, 250, 250, 0.7),
-    //   0px 10px 5px rgba(151, 149, 149, 0.1);
-    //   @include c.small {
-    //     width: 65%;
-    //     height: 65%;
-    //     font-size: 16px;
-    //     padding-left: 0;
-    //   }
-    //   @include c.medium {
-    //     font-size: 18px;
-    //     padding-left: 0;
-    //     height: 75%;
-    //   }
-    //   @include c.xlarge {
-    //     font-size: 20px;
-    //   }
-    // }
     @include c.small {
       margin-top: 4%;
     }
