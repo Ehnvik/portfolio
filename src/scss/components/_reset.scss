@@ -11,8 +11,8 @@ body {
   --nav-link-load-time: 500ms;
   --footer-load-time: 400ms;
   --footer-time: 600ms;
-  --projects-load-time: 1.1s;
-  --projects-time: 300ms;
+  --projects-load-time: 0.7s;
+  --projects-time: 500ms;
   --article-load-delay: calc(var(--nav-load-time) + var(--nav-link-load-time));
 }
 
