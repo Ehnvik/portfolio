@@ -42,13 +42,21 @@ function handleWeatherData(weather: IWeatherData) {
 }
 
 function printWeatherData(newWeather: Weather) {
-  let weatherLocation: HTMLLinkElement = document.getElementById(
-    "weather-location"
-  ) as HTMLLinkElement;
+  let weatherContainer: HTMLUListElement = document.getElementById(
+    "weather-container"
+  ) as HTMLUListElement;
+  weatherContainer.classList.add("footer__list");
 
-  let weatherTemperature: HTMLLinkElement = document.getElementById(
-    "weather-temperature"
-  ) as HTMLLinkElement;
+  let weatherTodayText = document.createElement("li");
+  weatherTodayText.innerHTML = "<strong>Vädret idag</strong>";
+
+  let weatherLocation = document.createElement("li");
+  weatherLocation.classList.add("footer__list__link");
+  weatherLocation.style.padding = "10px 0px 0px 0px";
+
+  let weatherTemperature = document.createElement("li");
+  weatherTemperature.classList.add("footer__list__link");
+  weatherTemperature.style.paddingLeft = "0px";
 
   let IconUrlLink: HTMLImageElement = document.createElement("img");
 
@@ -69,5 +77,8 @@ function printWeatherData(newWeather: Weather) {
   weatherLocation.innerHTML = newWeather.locationName;
   weatherTemperature.innerHTML = `${temperatureText} &deg;C ${weatherDescription}`;
 
+  weatherContainer.appendChild(weatherTodayText);
+  weatherContainer.appendChild(weatherLocation);
+  weatherContainer.appendChild(weatherTemperature);
   weatherTemperature.appendChild(IconUrlLink);
 }

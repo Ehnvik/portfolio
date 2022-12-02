@@ -111,6 +111,7 @@
         font-family: c.$titleFont;
       }
       &__button {
+        text-align: center;
         background-color: c.$secondaryBgColor;
         color: c.$secondaryColor;
         border: 1px c.$primaryColor;
