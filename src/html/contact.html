@@ -6,9 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../scss/style.scss" />
     <script src="../ts/weather/weather.ts" defer type="module"></script>
+    <script src="../js/mail.js" defer></script>
     <script
       src="https://kit.fontawesome.com/bc5eefc1c7.js"
       crossorigin="anonymous"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("nwhHohxiJjY4M00RL");
+      })();
+    </script>
     <title>Portfölj Gustav Ehnvik</title>
   </head>
   <body>
@@ -74,7 +83,7 @@
           <input
             type="email"
             name="email"
-            id="emailaddress"
+            id="email"
             class="contact__container__form__input"
             placeholder="E-post"
             required />
@@ -83,7 +92,7 @@
           >
           <input
             type="tel"
-            name="phone"
+            name="number"
             id="number"
             class="contact__container__form__input"
             placeholder="Tel-xxxxxxxxxx"
@@ -91,12 +100,15 @@
             required />
           <textarea
             rows="5"
-            name="projectsummary"
-            id="projectsummary"
+            name="message"
+            id="message"
             class="contact__container__form__textarea"
             placeholder="Meddelande"
             required></textarea>
-          <button type="submit" class="contact__container__form__button">
+          <button
+            type="button"
+            class="contact__container__form__button"
+            onclick="sendMail()">
             Skicka
           </button>
         </form>

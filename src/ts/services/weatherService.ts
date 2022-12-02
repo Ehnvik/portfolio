@@ -13,6 +13,5 @@ export async function getWeatherData(
   let response = await axios.get<IWeatherData>(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=sv&appid=${apiKey}&units=metric`
   );
-  console.log(response.data);
   return response.data;
 }
